@@ -1,4 +1,4 @@
-const JWTHelper = require('../../../../../helpers/jwt/jwt.helper')
+const JWTHelper = require("../../../../../helpers/jwt/jwt.helper")
 
 /**
  * Verify the active state of an account
