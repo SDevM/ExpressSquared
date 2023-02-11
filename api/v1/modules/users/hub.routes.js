@@ -1,5 +1,5 @@
-const UsersController = require("../controller")
-const adminCheck = require("../lib/middleware/adminCheck.middleware")
+const adminCheck = require("../../lib/middleware/adminCheck.middleware")
+const UsersController = require("./controller")
 
 const UserRouter = require("express").Router()
 

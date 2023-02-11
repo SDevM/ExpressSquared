@@ -1,5 +1,5 @@
+const UserRouter = require("./modules/users/hub.routes")
 const router = require("express").Router()
-const UserRouter = require("./modules/users/routes/hub.routes")
 
 /**
  * Generates the API Docs from the list of routes in the system and attaches descriptions to them
