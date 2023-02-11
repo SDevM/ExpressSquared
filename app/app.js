@@ -15,10 +15,6 @@ const {
   SERVER_MODE,
 } = process.env
 
-// View Engine
-app.set("views", "templates")
-app.set("view engine", "ejs")
-
 // Initialize App and API Versions
 const app = express()
 app.all("", (req, res) => {
@@ -29,6 +25,10 @@ app.all("", (req, res) => {
     Versions: ACTIVE_VERSION_LIST,
   })
 })
+
+// View Engine
+app.set("views", "templates")
+app.set("view engine", "ejs")
 
 JSON.parse(ACTIVE_VERSION_LIST).forEach((version) => {
   app.use(`/api/${version}`, require(`./api/${version}/hub.routes.js`))
