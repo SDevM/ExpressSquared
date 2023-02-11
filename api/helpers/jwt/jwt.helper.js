@@ -35,7 +35,7 @@ class JWTHelper {
         SESSION_SECRET
       )
     } catch (err) {
-      console.error("Killing token", err)
+      console.error("Killing suspicious token", err)
       this.killToken(req, res, name)
       decoded = null
     }
