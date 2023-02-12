@@ -13,6 +13,23 @@ const s3 = new S3({
 
 class S3Helper {
   /**
+   * Generic promise execution
+   * @param {Promise} promise
+   * @param {Function} resolve
+   * @param {Function} reject
+   */
+  static #execute(promise, resolve, reject) {
+    promise
+      .then((data) => {
+        resolve(data)
+      })
+      .catch((err) => {
+        console.error(err)
+        reject(err)
+      })
+  }
+
+  /**
    * Upload a file's contents to s3
    * @param {File} file
    * @param {String} name
@@ -26,15 +43,7 @@ class S3Helper {
     }
 
     return new Promise((resolve, reject) => {
-      s3.upload(uploadConf)
-        .promise()
-        .then((data) => {
-          resolve(data)
-        })
-        .catch((err) => {
-          console.error(err)
-          resolve(null)
-        })
+      this.#execute(s3.upload(uploadConf).promise(), resolve, reject)
     })
   }
 
@@ -50,15 +59,7 @@ class S3Helper {
     }
 
     return new Promise((resolve, reject) => {
-      s3.deleteObject(deleteConf)
-        .promise()
-        .then((data) => {
-          resolve(data)
-        })
-        .catch((err) => {
-          console.error(err)
-          resolve(null)
-        })
+      this.#execute(s3.deleteObject(deleteConf).promise(), resolve, reject)
     })
   }
 
@@ -74,15 +75,7 @@ class S3Helper {
     }
 
     return new Promise((resolve, reject) => {
-      s3.getObject(downConf)
-        .promise()
-        .then((data) => {
-          resolve(data)
-        })
-        .catch((err) => {
-          console.error(err)
-          resolve(null)
-        })
+      this.#execute(s3.getObject(downConf).promise(), resolve, reject)
     })
   }
 }
