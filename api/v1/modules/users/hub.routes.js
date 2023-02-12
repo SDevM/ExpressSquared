@@ -11,10 +11,10 @@ UserRouter.route("/auth")
 
 UserRouter.use(adminCheck)
 
-UserRouter.route("/collection").get(UsersController.getAny)
+UserRouter.route("/collection").get(UsersController.getLimit)
 
 UserRouter.route("/:id")
-  .get(UsersController.getAny)
+  .get(UsersController.getByID)
   .patch(UsersController.patchAny)
   .delete(UsersController.deleteAny)
 
