@@ -1,6 +1,6 @@
 const { compare, hash, genSaltSync } = require("bcrypt")
-const emailHelper = require("../../email.helper.js")
-const S3Helper = require("../../s3.helper.js")
+const emailHelper = require("../../../../helpers/email/email.helper.js")
+const S3Helper = require("../../../../helpers/aws/s3.helper.js")
 const db = require("../db.js")
 require("dotenv").config()
 const { DOMAIN } = process.env
