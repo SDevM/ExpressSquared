@@ -36,7 +36,7 @@ JSON.parse(ACTIVE_VERSION_LIST).forEach((version) => {
 
 // CORS Middleware
 const WHITELIST = JSON.parse(CORS)
-app.use({
+app.use(cors({
   origin: function (origin, callback) {
     if (WHITELIST.indexOf(origin) !== -1 || WHITELIST.indexOf("*") !== -1) {
       console.log(
@@ -49,7 +49,7 @@ app.use({
   },
   optionsSuccessStatus: 200,
   credentials: true,
-})
+}))
 
 // Body Parsing Middleware
 app.use(express.json())
