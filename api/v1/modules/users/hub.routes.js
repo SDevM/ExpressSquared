@@ -14,7 +14,7 @@ UserRouter.use(adminCheck)
 UserRouter.route("/collection").get(UsersController.getLimit)
 
 UserRouter.route("/:id")
-  .get(UsersController.getByID)
+  .get(UsersController.getById)
   .patch(UsersController.patchAny)
   .delete(UsersController.deleteAny)
 
