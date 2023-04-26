@@ -27,6 +27,6 @@ router.all("", (req, res) => {
   res.render("docs", body)
 })
 
-router.user("/user", UserRouter)
+router.use("/user", UserRouter)
 
 module.exports = router
